@@ -1,0 +1,17 @@
+@import './base.scss';
+
+.x-button {
+    border-radius: $borderRadius;
+    padding: $defaultPaddingTop $defaultPaddingLeft;
+    width: fit-content;
+}
+
+.x-button--default {
+    color: $defaultTextColor;
+    background-color: $defaultBackground;
+    border: $defaultBorderWidth solid $defaultBorderColor;
+
+    &:hover {
+        background-color: $defaultHoverColor;
+    }
+}
