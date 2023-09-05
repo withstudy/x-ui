@@ -2,17 +2,36 @@
   "name": "x-ui",
   "version": "1.0.0",
   "description": "ui component library",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": ["lib", "src", "packages"],
   "scripts": {
     "dev": "webpack serve --config ./webpack.dev.js",
+    "build": "webpack build --config ./webpack.prod.js",
+    "build:styles": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "xuhb",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "ttps://github.com/withstudy/x-ui.git"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.30"
+  },
   "devDependencies": {
+    "autoprefixer": "^10.4.15",
     "css-loader": "^6.8.1",
+    "cssnano": "^6.0.1",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.1.0",
     "html-webpack-plugin": "^5.5.3",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.29",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
