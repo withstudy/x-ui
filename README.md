@@ -7,7 +7,7 @@ A vue ui component library.
 import { createApp } from 'vue'
 import App from './App.vue'
 import XUI from 'x-ui'
-import '../../src/styles/index.scss'
+import 'x-ui/lib/styles/index.css'
 
 createApp(App)
 .use(XUI)
@@ -17,6 +17,9 @@ createApp(App)
 ## 按需导入
 
 安装`babel-plugin-component`插件
+```shell
+npm install --save-dev babel-plugin-component
+```
 
 创建`babel.config.js`
 
