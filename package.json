@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "ui component library",
   "main": "lib/index.js",
-  "files": ["lib", "src", "packages"],
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
   "scripts": {
     "dev": "webpack serve --config ./webpack.dev.js",
     "build": "webpack build --config ./webpack.prod.js",
