@@ -9,9 +9,12 @@
     "packages"
   ],
   "scripts": {
+    "lint": "eslint --fix src example packages --ext .js,.vue",
+    "lint:style": "stylelint --fix **/*.{html,vue} --custom-syntax postcss-html",
+    "lint:css": "stylelint --fix **/*.{css,sass,scss}",
     "dev": "webpack serve --config ./webpack.dev.js",
     "build": "webpack build --config ./webpack.prod.js",
-    "build:styles": "gulp",
+    "build:style": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -25,25 +28,60 @@
     "vue": "^3.2.30"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "autoprefixer": "^10.4.15",
     "css-loader": "^6.8.1",
     "cssnano": "^6.0.1",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "eslint-webpack-plugin": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
     "html-webpack-plugin": "^5.5.3",
+    "husky": "^8.0.3",
+    "i": "^0.3.7",
+    "lint-staged": "^14.0.1",
     "node-sass": "^9.0.0",
+    "npm": "^10.0.0",
     "postcss": "^8.4.29",
+    "postcss-html": "^1.5.0",
+    "prettier": "^3.0.3",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^4.0.2",
+    "stylelint-scss": "^5.1.0",
     "vue": "^3.3.4",
     "vue-loader": "^17.2.2",
     "vue-template-compiler": "^2.7.14",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "lint-staged": {
+    "*.vue": [
+      "npm run lint",
+      "npm run lint:style"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint"
+    ],
+    "*.{css,sss,less,scss,sass}": [
+      "npm run lint:css"
+    ],
+    "*.{htm,html}": [
+      "npm run lint:style"
+    ]
   }
 }

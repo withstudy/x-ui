@@ -6,19 +6,17 @@
 <script>
 export default {
     name: "XButton",
-}
+};
 </script>
 <script setup>
-import { computed } from "vue"
+import { computed } from "vue";
 const props = defineProps({
     type: {
         type: String,
-        default: "default"
-    }
-})
+        default: "default",
+    },
+});
 
-const buttonType = computed(() => `x-button--${props.type}`)
+const buttonType = computed(() => `x-button--${props.type}`);
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

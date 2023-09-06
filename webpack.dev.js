@@ -1,48 +1,51 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
-const path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
+
+const path = require("path");
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: {
-        index: './example/src/index.js'
+        index: "./example/src/index.js",
     },
-    devtool: 'source-map',
+    devtool: "source-map",
     output: {
-        filename: 'js/[name].js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        filename: "js/[name].js",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/",
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: "vue-loader",
             },
             {
                 test: /\.scss$/,
                 use: [
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader'},
-                    {loader: 'sass-loader'}
-                ]
-            }
-        ]
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" },
+                ],
+            },
+        ],
     },
     devServer: {
         static: [
-            path.resolve(__dirname, 'example/public'),
-            path.resolve(__dirname, 'dist')
+            path.resolve(__dirname, "example/public"),
+            path.resolve(__dirname, "dist"),
         ],
         port: 8080,
-        host: 'localhost',
+        host: "localhost",
         hot: true,
     },
     plugins: [
+        new ESLintPlugin({ extensions: ["js", "vue"] }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'example/public/index.html'),
-            filename: 'index.html',
-            chunks: ['index']
-        })
-    ]
-}
+            template: path.resolve(__dirname, "example/public/index.html"),
+            filename: "index.html",
+            chunks: ["index"],
+        }),
+    ],
+};

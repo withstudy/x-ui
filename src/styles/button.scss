@@ -1,10 +1,10 @@
-@import './base.scss';
+@import "./base";
 
 .x-button {
-    border-radius: $borderRadius;
-    padding: $defaultPaddingTop $defaultPaddingLeft;
     width: fit-content;
+    padding: $defaultPaddingTop $defaultPaddingLeft;
     cursor: pointer;
+    border-radius: $borderRadius;
 }
 
 .x-button--default {

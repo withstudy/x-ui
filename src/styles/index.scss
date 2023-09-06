@@ -1,7 +1,6 @@
-@import './base.scss';
-@import './layout.scss';
-
-@import './button.scss';
+@import "./base";
+@import "./layout";
+@import "./button";
 
 .test {
     color: $primaryActiveColor;
